@@ -12,11 +12,11 @@ class Title extends Component {
         return (
             <div className="home-text">
                 <h1>
-                    <a href="#" dangerouslySetInnerHTML={{__html: this.formatHeading(this.props.heading)}} />
+                    <a href="#" dangerouslySetInnerHTML={{__html: this.formatHeading(this.props.heading)}}/>
                 </h1>
-                <p>Running a <strong>tech</strong> start up in Scotland's capital. Getting people connected to
-                    Public
-                    <strong>Wi-Fi</strong> with user experience dictating our product.</p>
+                <p>Running a <strong>tech</strong> start up in Scotland's capital. </p>
+                <p>Getting people connected to
+                    Public <strong>Wi-Fi</strong> with user experience dictating our product.</p>
             </div>
 
         )

@@ -1,38 +1,19 @@
 import React, { Component }                                            from 'react'
 import MenuItem                                                        from '../MenuItem/MenuItem'
+import items                                                           from './Items'
+import './Menu.scss'
 import 'velocity-animate/velocity.ui'
-import { VelocityTransitionGroup, VelocityComponent, velocityHelpers } from 'velocity-react'
-
-const items = [{
-    title: 'Company',
-    content: 'BLACKBX',
-    link: 'https://blackbx.io',
-}, {
-    title: 'Facebook',
-    content: 'My personal self',
-    link: 'https://www.facebook.com/patrickclover',
-}, {
-    title: 'Twitter',
-    content: 'I\'m not a news source, what is this?',
-    link: 'https://twitter.com/patrickclover',
-}, {
-    title: 'LinkedIn',
-    content: 'Who I know + Who you know',
-    link: 'https://www.linkedin.com/in/patrickclover/',
-}, {
-    title: 'Contact',
-    content: 'Mail me',
-    link: 'mailto:im@patrickclover.com',
-}]
+import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react'
 
 class Menu extends Component {
 
     enterAnimation = {
         animation: 'transition.perspectiveLeftIn',
-        stagger: 150,
+        stagger: 50,
         delay: 0,
         backwards: false,
         opacity: 1,
+        display: 'block',
         style: {
             // Since we're staggering, we want to keep the display at "none" until Velocity runs
             // the display attribute at the start of the animation.
@@ -44,9 +25,8 @@ class Menu extends Component {
     leaveAnimation = {
         animation: 'transition.perspectiveRightOut',
         delay: 0,
-        stagger: this.enterAnimation.stagger,
+        stagger: this.enterAnimation.stagger * 3,
         backwards: true,
-
     }
 
     constructor () {
@@ -65,18 +45,19 @@ class Menu extends Component {
         }
     }
 
+
     render () {
         const animation = 'transition.' + (this.props.open ? 'perspectiveLeftIn' : 'fadeOut')
-        const open      = this.props.open ? 'overlay-active overlay-slide-down' : 'overlay-slide-up'
-        return (
 
+        return (
             <VelocityComponent
-                duration={this.enterAnimation.stagger * items.length}
-                delay={300}
+                duration={this.leaveAnimation.stagger * items.length}
+                delay={200}
                 animation={this.props.open ? 'transition.slideLeftIn' : 'transition.slideRightOut'}>
                 <nav role="navigation" className="overlay-navigation">
                     <VelocityTransitionGroup
                         component="ul"
+                        runOnMount={true}
                         enter={this.enterAnimation}
                         leave={this.leaveAnimation}>
                         {
@@ -85,7 +66,6 @@ class Menu extends Component {
                             )
                         }
                     </VelocityTransitionGroup>
-
                 </nav>
             </VelocityComponent>
 

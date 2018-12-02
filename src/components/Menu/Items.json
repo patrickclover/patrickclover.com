@@ -1,0 +1,32 @@
+[
+  {
+    title: 'Company',
+    content: 'BLACKBX',
+    link: 'https://blackbx.io'
+  },
+  {
+    title: 'Facebook',
+    content: 'My personal self',
+    link: 'https://www.facebook.com/patrickclover'
+  },
+  {
+    title: 'Twitter',
+    content: 'I\'m not a news source, what is this?',
+    link: 'https://twitter.com/patrickclover'
+  },
+  {
+    title: 'LinkedIn',
+    content: 'Who I know + Who you know',
+    link: 'https://www.linkedin.com/in/patrickclover/'
+  },
+  {
+    title: 'Github',
+    content: 'Some code I wrote',
+    link: 'https://github.com/patrickclover'
+  },
+  {
+    title: 'Contact',
+    content: 'Mail me',
+    link: 'mailto:im@patrickclover.com'
+  }
+]
