@@ -42,4 +42,7 @@ $hamburger-types: (
     font-weight: 300;
     font-family: 'Work sans', sans-serif;
   }
+  &.is-active span {
+    display: none;
+  }
 }
