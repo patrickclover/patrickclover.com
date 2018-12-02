@@ -9,7 +9,7 @@ phases:
             - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
             - sudo apt-get update -y && sudo apt-get install -y yarn
             - bash -c "$(curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install)"
-            - npm install
+            - yarn
     build:
         commands:
            - echo "==> CODEBUILD_GIT_BRANCH = ${CODEBUILD_GIT_BRANCH} ${BRANCH_NAME} d $GIT_REPO"
