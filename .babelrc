@@ -1,3 +1,6 @@
 {
-  "presets": ["env"] //automatically determine the Babel plugins and polyfills you need based on your supported environments.
+  "presets": ["env"],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+  ]//automatically determine the Babel plugins and polyfills you need based on your supported environments.
 }

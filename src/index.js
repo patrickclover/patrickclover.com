@@ -1,11 +1,12 @@
-import core from './core';
-import './waves';
-import './hamburger.scss';
-import './index.scss';
-
+import './index.scss'
+import React    from 'react'
+import ReactDOM from 'react-dom'
+import App      from './components/App/App'
+import 'velocity-animate'
+import 'velocity-animate/velocity.ui'
 
 if (window.location.hostname.indexOf('www') === 0) {
-	window.location = window.location.href.replace('www.', '');
+    window.location = window.location.href.replace('www.', '')
 }
 
-document.addEventListener('DOMContentLoaded', () => core());
+ReactDOM.render(<App/>, document.getElementById('root'))
