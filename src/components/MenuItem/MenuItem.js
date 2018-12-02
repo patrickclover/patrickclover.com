@@ -7,7 +7,7 @@ class MenuItem extends Component {
         return (
 
             <li>
-                <a href={item.link} target="_blank" data-content={item.content}>
+                <a title={item.title} href={item.link} target="_blank" data-content={item.content}>
                     {item.title}
                 </a>
             </li>
