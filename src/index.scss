@@ -2,8 +2,13 @@
 
 html, body {
   width: 100%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: scroll; /* has to be scroll, not auto */
+}
+
+.App, #root {
+  height: 100%;
 }
 
 body {
@@ -13,7 +18,30 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.flex-grid {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100%;
+  > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &:first-child {
+      justify-content: flex-end;
+    }
+  }
+}
 
+.home {
+  max-width: 40%;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+
+}
 
 h1 {
   font-size: inherit;
@@ -21,152 +49,23 @@ h1 {
 }
 
 /* ====================================
-Burger king
+Medias
 ==================================== */
-
-.bar-top {
-  margin-top: 0;
-}
-
-.animate-top-bar {
-  -webkit-animation: animate-top-bar .6s linear 1 both;
-  animation: animate-top-bar .6s linear 1 both
-}
-
-.animate-bottom-bar {
-  -webkit-animation: animate-bottom-bar .6s linear 1 both;
-  animation: animate-bottom-bar .6s linear 1 both
-}
-
-.animate-middle-bar {
-  -webkit-animation: animate-middle-bar .6s linear 1 both;
-  animation: animate-middle-bar .6s linear 1 both
-}
-
-.animate-out-top-bar {
-  -webkit-animation: animate-out-top-bar .6s linear 1 both;
-  animation: animate-out-top-bar .6s linear 1 both
-}
-
-.animate-out-bottom-bar {
-  -webkit-animation: animate-out-bottom-bar .6s linear 1 both;
-  animation: animate-out-bottom-bar .6s linear 1 both
-}
-
-.animate-out-middle-bar {
-  -webkit-animation: animate-out-middle-bar .6s linear 1 both;
-  animation: animate-out-middle-bar .6s linear 1 both
-}
-
-/* ====================================
-Animation keyframes
-==================================== */
-
-@keyframes animate-top-bar {
-  0% {
-    background-color: #fff;
-  }
-  50% {
-    -webkit-transform: translateY(9px);
-    transform: translateY(9px)
-  }
-  80% {
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
-    background-color: #fff
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #29363B;
-  }
-}
-
-@keyframes animate-bottom-bar {
-  0% {
-    background-color: #fff;
-  }
-  50% {
-    -webkit-transform: translateY(-9px);
-    transform: translateY(-9px)
-  }
-  80% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-    background-color: #fff;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #29363B;
-  }
-}
-
-@keyframes animate-middle-bar {
-  0% {
-    background-color: #fff;
-  }
-  80% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: #29363B;
-  }
-}
-
-@keyframes animate-out-top-bar {
-  0% {
-    background-color: #29363B
-  }
-  50% {
-    -webkit-transform: translateY(9px);
-    transform: translateY(9px)
-  }
-  80% {
-    -webkit-transform: translateY(5px);
-    transform: translateY(5px);
-    background-color: #29363B
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #FFF;
-  }
-}
-
-@keyframes animate-out-bottom-bar {
-  0% {
-    background-color: #29363B
-  }
-  50% {
-    -webkit-transform: translateY(-9px);
-    transform: translateY(-9px)
-  }
-  80% {
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-    background-color: #29363B;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    background-color: #FFF;
-  }
-}
-
-@keyframes animate-out-middle-bar {
-  0% {
-    background-color: #29363B
-  }
-  80% {
-    background-color: #29363B;
-  }
-  100% {
-    background-color: #fff;
-  }
-}
 
 @media (max-width: 640px) {
+  .hidden-sm {
+    display: none !important;
+  }
+  .home {
+    max-width: 100%;
+  }
+  .flex-grid {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    min-height: auto;
+    display: block;
+  }
   nav ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

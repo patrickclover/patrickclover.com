@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import './Galaxy.scss'
 
 class Galaxy extends Component {
-    render () {
+    render() {
         return (
-            <section className="galaxy">
+            <div className="galaxy">
                 <ul className="orbit">
                     <li className="sun"><span></span></li>
                     <li className="mercury"><span></span></li>
@@ -18,7 +18,7 @@ class Galaxy extends Component {
                     <li className="neptune"><span></span></li>
                     <li className="pluto"><span></span></li>
                 </ul>
-            </section>
+            </div>
         )
     }
 }

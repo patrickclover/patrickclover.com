@@ -14,9 +14,7 @@ class Title extends Component {
                 <h1>
                     <a href="#" title="patrick clover" dangerouslySetInnerHTML={{__html: this.formatHeading(this.props.heading)}}/>
                 </h1>
-                <p>Running a <strong>tech</strong> start up in Scotland's capital. </p>
-                <p>Getting people connected to
-                    Public <strong>Wi-Fi</strong> with user experience dictating our product.</p>
+                {this.props.desc}
             </div>
 
         )

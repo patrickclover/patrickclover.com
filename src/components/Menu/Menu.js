@@ -2,6 +2,7 @@ import React, { Component }                                            from 'rea
 import MenuItem                                                        from '../MenuItem/MenuItem'
 import items                                                           from './Items'
 import './Menu.scss'
+import 'velocity-animate'
 import 'velocity-animate/velocity.ui'
 import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react'
 

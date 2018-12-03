@@ -1,0 +1,30 @@
+.blog {
+  color: #fff;
+  margin-top: 10px;
+  .__item {
+    border-radius: 8px;
+    margin: 10px 0;
+    h2 {
+      font-size: 13px;
+      font-weight: 300;
+      margin: 0;
+      a {
+        color: white;
+        text-transform: none;
+        text-decoration: underline;
+      }
+      span {
+        margin-left: 10px;
+        padding-left: 10px;
+        font-size: 12px;
+        border-left: 1px solid #8d8d8d;
+      }
+    }
+    figure {
+      margin: 0;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

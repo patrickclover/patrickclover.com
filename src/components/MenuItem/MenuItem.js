@@ -1,8 +1,7 @@
-import React, { Component }                           from 'react'
-import { VelocityTransitionGroup, VelocityComponent } from 'velocity-react'
+import React, {Component} from 'react'
 
 class MenuItem extends Component {
-    render () {
+    render() {
         const item = this.props.item
         return (
 
