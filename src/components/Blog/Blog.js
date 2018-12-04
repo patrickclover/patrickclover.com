@@ -32,11 +32,11 @@ class Blog extends Component {
     }
 
     formatDate (date) {
-
+        date = date.replace(/\s/, 'T')
         if (!date) return
-        const d = new Date(date.toString())
+        const d = new Date(date)
         if (d.toString() === 'Invalid Date') return
-        console.log(d,date.toString())
+
         return new Intl.DateTimeFormat('en-GB', {
             year: 'numeric',
             month: 'short',
