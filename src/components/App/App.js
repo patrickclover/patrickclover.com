@@ -1,25 +1,25 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './App.scss'
-import Menu from '../Menu/Menu'
-import Hamburger from '../Hamburger/Hamburger'
-import Title from '../Title/Title'
-import Galaxy from '../Galaxy/Galaxy'
-import Blog from '../Blog/Blog'
+import Menu                 from '../Menu/Menu'
+import Hamburger            from '../Hamburger/Hamburger'
+import Title                from '../Title/Title'
+import Galaxy               from '../Galaxy/Galaxy'
+import Blog                 from '../Blog/Blog'
 
 class App extends Component {
 
-    constructor() {
+    constructor () {
         super()
         this.state = {
             active: false,
         }
     }
 
-    onClick() {
+    onClick () {
         this.setState({active: !this.state.active})
     }
 
-    description() {
+    description () {
         return (
             <div>
                 <p>Running a <strong>tech</strong> start up in Scotland's capital. </p>
@@ -28,7 +28,7 @@ class App extends Component {
             </div>)
     }
 
-    render() {
+    render () {
         return (
             <div className="App">
                 <Menu open={this.state.active}/>
@@ -36,7 +36,7 @@ class App extends Component {
 
                 <Galaxy/>
                 <section className="home flex-grid">
-                    <Title heading="Patrick Clover" desc={this.description()}/>
+                    <Title heading="Patrick Clover" delay="1000" desc={this.description()}/>
                     <Blog/>
                 </section>
             </div>

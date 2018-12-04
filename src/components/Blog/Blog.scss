@@ -1,6 +1,10 @@
 .blog {
   color: #fff;
   margin-top: 10px;
+  min-height: 350px;
+  .__items {
+    min-height: 290px;
+  }
   .__item {
     border-radius: 8px;
     margin: 10px 0;
