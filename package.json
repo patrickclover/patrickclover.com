@@ -7,8 +7,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html",
+    "dev-build": "prebuild parcel dist/index.html",
     "prebuild": "rm -rf dist",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "prod": "yarn build yarn prebuild"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
