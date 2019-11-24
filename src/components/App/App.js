@@ -5,25 +5,23 @@ import Hamburger from '../Hamburger/Hamburger'
 import Galaxy from '../Galaxy/Galaxy'
 
 class App extends Component {
- 
-    state = {
-      active: false
-    }
-  
+  state = {
+    active: false
+  }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
-    let scrollTop = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop; 
-    let newPos = scrollTop + "px";
-    document.documentElement.style.setProperty('--scrollPos', newPos);
+    let scrollTop = document.body.scrollTop
+      ? document.body.scrollTop
+      : document.documentElement.scrollTop
+    let newPos = scrollTop + 'px'
+    document.documentElement.style.setProperty('--scrollPos', newPos)
   }
 
-  onClick = () => 
-    this.setState({ active: !this.state.active })
-  
+  onClick = () => this.setState({ active: !this.state.active })
 
   description() {
     return (
@@ -32,7 +30,8 @@ class App extends Component {
           Running a <strong>tech</strong> start up in Scotland's capital
         </p>
         <p>
-          Connecting consumors to businesses with a focus on human centered design
+          Connecting consumors to businesses with a focus on human centered
+          design
         </p>
       </div>
     )
@@ -44,28 +43,37 @@ class App extends Component {
         <Menu open={this.state.active} />
         <Hamburger active={this.state.active} click={this.onClick.bind(this)} />
 
-  
         <section className="home flex-grid">
-        
-<div className="white">
-<p>Patrick <strong>Clover</strong></p>
-<h1 aria-label="Rainbows are cool at any time.">
-  <span>Rainbows are cool</span>
-  <br />
-  <span> at any time.</span>
-</h1>
-<p>Founder at <strong><a target="_blank" href="https://stampede.ai">Stampede</a></strong>. 
-
-  <br />
-  Building tools to help businesses engage with customers.
-  <br />
-  <strong>Human</strong> centered design at our core.
-</p>
-</div>   
-<div className="dark">
-  <Galaxy/>
-  <p>No one makes it this far<br/> <a onClick={this.onClick.bind(this)}>want more?</a></p>
-  </div>   
+          <div className="white">
+            <p>
+              Patrick <strong>Clover</strong>
+            </p>
+            <h1 aria-label="Rainbows are cool at any time.">
+              <span>Rainbows are cool</span>
+              <br />
+              <span> at any time.</span>
+            </h1>
+            <p>
+              Founder at{' '}
+              <strong>
+                <a target="_blank" href="https://stampede.ai">
+                  Stampede
+                </a>
+              </strong>
+              .
+              <br />
+              Building tools to help businesses engage with customers.
+              <br />
+              <strong>Human</strong> centered design at our core.
+            </p>
+          </div>
+          <div className="dark">
+            <Galaxy />
+            <p>
+              No one makes it this far
+              <br /> <a onClick={this.onClick.bind(this)}>want more?</a>
+            </p>
+          </div>
         </section>
       </div>
     )

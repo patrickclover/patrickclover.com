@@ -19,7 +19,7 @@ class Title extends Component {
     }
   }
 
-  formatHeading = (heading) => {
+  formatHeading = heading => {
     const split = heading.split(' ')
     split[split.length - 1] = '<strong>' + split[split.length - 1] + '</strong>'
     return split.join(' ')
