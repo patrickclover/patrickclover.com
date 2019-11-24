@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import './App.scss'
-import Menu from '../Menu/Menu'
-import Hamburger from '../Hamburger/Hamburger'
-import Galaxy from '../Galaxy/Galaxy'
+import React, { Component } from "react"
+import "./App.scss"
+import Menu from "../Menu/Menu"
+import Hamburger from "../Hamburger/Hamburger"
+import Galaxy from "../Galaxy/Galaxy"
 
 class App extends Component {
   state = {
@@ -10,15 +10,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener("scroll", this.handleScroll)
   }
 
   handleScroll = () => {
     let scrollTop = document.body.scrollTop
       ? document.body.scrollTop
       : document.documentElement.scrollTop
-    let newPos = scrollTop + 'px'
-    document.documentElement.style.setProperty('--scrollPos', newPos)
+    let newPos = scrollTop + "px"
+    document.documentElement.style.setProperty("--scrollPos", newPos)
   }
 
   onClick = () => this.setState({ active: !this.state.active })
@@ -54,7 +54,7 @@ class App extends Component {
               <span> at any time.</span>
             </h1>
             <p>
-              Founder at{' '}
+              Founder at{" "}
               <strong>
                 <a target="_blank" href="https://stampede.ai">
                   Stampede
