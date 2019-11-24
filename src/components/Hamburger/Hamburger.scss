@@ -3,7 +3,7 @@ $hamburger-padding-y: 0px;
 $hamburger-layer-width: 40px;
 $hamburger-layer-height: 2px;
 $hamburger-layer-spacing: 9px;
-$hamburger-layer-color: #fff;
+$hamburger-layer-color: #FF8EDF;
 $hamburger-layer-border-radius: 8px;
 $hamburger-hover-opacity: 0.9;
 $hamburger-active-layer-color: $hamburger-layer-color;
@@ -25,24 +25,24 @@ $hamburger-types: (
 @import "~hamburgers/_sass/hamburgers/hamburgers.scss";
 
 .hamburger {
-  position: absolute;
-  right: 3.2rem;
-  top: 3.2rem;
+  position: fixed;
+  right: 40px;
+  top: 25px;
   display: block;
   cursor: pointer;
   padding: 0;
   z-index: 1050;
   span {
-    color: white;
+    color: $hamburger-layer-color;
     position: relative;
     top: -6px;
     right: 15px;
-    text-transform: uppercase;
     font-size: 12px;
-    font-weight: 300;
-    font-family: 'Work sans', sans-serif;
+    font-weight: 900;
   }
   &.is-active span {
     display: none;
+
   }
 }
+

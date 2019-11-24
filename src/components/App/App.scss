@@ -1,4 +1,17 @@
+
+
 .home {
+
+  .card {
+    background: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 10px;
+    padding: 35px;
+  }
+
+  h1 {
+    margin: 0;
+  }
 
   .home-text {
     font-family: "Open Sans", sans-serif;
@@ -9,10 +22,10 @@
     left: 3.5rem;
     margin-top: -48.5px;
     */
-    color: white;
+    color: black;
     a {
-      color: white;
-      border-bottom: 2px solid #fff;
+
+      border-bottom: 2px solid black;
       font-size: 16px;
     }
     p {
@@ -20,16 +33,77 @@
       max-width: 340px;
       font-family: "Open Sans", sans-serif;
       font-weight: 300;
+      font-size: 16px;
     }
   }
   a {
-    color: #222;
+
     font-weight: 300;
     font-size: 12px;
-    text-transform: uppercase;
     text-decoration: none;
     padding-bottom: 3px;
-
+    strong {
+      font-weight: 700;
+    }
   }
 }
 
+
+.App .home {
+  font: 40px system-ui, -apple-system, sans-serif;
+  letter-spacing: -1px;
+  color: #1D163A;
+  p {
+    font-weight: 900;
+    strong {
+      font-weight: 900;
+    }
+  }
+  a {
+    font: inherit;
+    text-decoration: underline;
+    color: inherit;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  h1 {
+    --offset: 400px;
+    font-size: 2em;
+    font-weight: 900;
+    span {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/spectrum.svg);
+      background-repeat: repeat-x;
+      background-size: 100vw 0.2em;
+      background-position: left bottom 5px;
+      background-position-x: var(--scrollPos);
+      &:nth-of-type(2) {
+        background-position-x: calc(var(--offset) + var(--scrollPos));
+      }
+    }
+   
+  }
+  .dark {
+    background: #1D163A;
+    color: #F2944A;
+  }
+  .white {
+    z-index: 2;
+    background-color: white;
+  }
+}
+
+
+@media (max-width: 640px) {
+
+  .home {
+    font-size: 25px !important;
+    h1 {
+      font-size: 1.5em !important;
+    }
+    p {
+      font-size: 0.9em;
+    }
+  }
+
+}

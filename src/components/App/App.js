@@ -1,47 +1,75 @@
 import React, { Component } from 'react'
 import './App.scss'
-import Menu                 from '../Menu/Menu'
-import Hamburger            from '../Hamburger/Hamburger'
-import Title                from '../Title/Title'
-import Galaxy               from '../Galaxy/Galaxy'
-import Blog                 from '../Blog/Blog'
+import Menu from '../Menu/Menu'
+import Hamburger from '../Hamburger/Hamburger'
+import Galaxy from '../Galaxy/Galaxy'
 
 class App extends Component {
-
-    constructor () {
-        super()
-        this.state = {
-            active: false,
-        }
+ 
+    state = {
+      active: false
     }
+  
 
-    onClick () {
-        this.setState({active: !this.state.active})
-    }
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-    description () {
-        return (
-            <div>
-                <p>Running a <strong>tech</strong> start up in Scotland's capital. </p>
-                <p>Getting people connected to Public <strong>Wi-Fi</strong> with user experience dictating our product.
-                </p>
-            </div>)
-    }
+  handleScroll = () => {
+    let scrollTop = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop; 
+    let newPos = scrollTop + "px";
+    document.documentElement.style.setProperty('--scrollPos', newPos);
+  }
 
-    render () {
-        return (
-            <div className="App">
-                <Menu open={this.state.active}/>
-                <Hamburger active={this.state.active} click={this.onClick.bind(this)}/>
+  onClick = () => 
+    this.setState({ active: !this.state.active })
+  
 
-                <Galaxy/>
-                <section className="home flex-grid">
-                    <Title heading="Patrick Clover" delay="1000" desc={this.description()}/>
-                    <Blog/>
-                </section>
-            </div>
-        )
-    }
+  description() {
+    return (
+      <div>
+        <p>
+          Running a <strong>tech</strong> start up in Scotland's capital
+        </p>
+        <p>
+          Connecting consumors to businesses with a focus on human centered design
+        </p>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Menu open={this.state.active} />
+        <Hamburger active={this.state.active} click={this.onClick.bind(this)} />
+
+  
+        <section className="home flex-grid">
+        
+<div className="white">
+<p>Patrick <strong>Clover</strong></p>
+<h1 aria-label="Rainbows are cool at any time.">
+  <span>Rainbows are cool</span>
+  <br />
+  <span> at any time.</span>
+</h1>
+<p>Founder at <strong><a target="_blank" href="https://stampede.ai">Stampede</a></strong>. 
+
+  <br />
+  Building tools to help businesses engage with customers.
+  <br />
+  <strong>Human</strong> centered design at our core.
+</p>
+</div>   
+<div className="dark">
+  <Galaxy/>
+  <p>No one makes it this far<br/> <a onClick={this.onClick.bind(this)}>want more?</a></p>
+  </div>   
+        </section>
+      </div>
+    )
+  }
 }
 
 export default App
