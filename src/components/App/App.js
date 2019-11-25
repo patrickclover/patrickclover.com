@@ -54,7 +54,7 @@ class App extends Component {
               <span> at any time.</span>
             </h1>
             <p>
-              Founder at{" "}
+              Founder of{" "}
               <strong>
                 <a target="_blank" href="https://stampede.ai">
                   Stampede
@@ -64,7 +64,7 @@ class App extends Component {
               <br />
               Building tools to help businesses engage with customers.
               <br />
-              <strong>Human</strong> centered design at our core.
+              <strong>Human</strong> centered design it's core.
             </p>
           </div>
           <div className="dark">
