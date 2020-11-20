@@ -58,7 +58,7 @@ ul.orbit {
     &.mars {
       -webkit-animation-duration: 20s;
     }
-    &.asteroids_meteorids {
+    &.asteroids_meteoroids {
       -webkit-animation-duration: 50s;
     }
     &.jupiter {
@@ -121,7 +121,7 @@ ul.orbit {
   left: 160px;
 }
 
-.asteroids {
+.asteroids_meteoroids {
   border: 1px #394057;
   height: 330px;
   width: 330px;
