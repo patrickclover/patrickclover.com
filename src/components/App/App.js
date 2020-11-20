@@ -27,10 +27,10 @@ class App extends Component {
     return (
       <div>
         <p>
-          Running a <strong>tech</strong> start up in Scotland's capital
+          Running a <strong>tech</strong> startup in Scotland's capital
         </p>
         <p>
-          Connecting consumors to businesses with a focus on human centered
+          Connecting consumers to businesses with a focus on human-centered
           design
         </p>
       </div>
@@ -64,14 +64,14 @@ class App extends Component {
               <br />
               Building tools to help businesses engage with customers.
               <br />
-              <strong>Human</strong> centered design it's core.
+              <strong>Human</strong>-centered design at its core.
             </p>
           </div>
           <div className="dark">
             <Galaxy />
             <p>
-              No one makes it this far
-              <br /> <a onClick={this.onClick.bind(this)}>want more?</a>
+              No one makes it this far.
+              <br /> <a onClick={this.onClick.bind(this)}>Want more?</a>
             </p>
           </div>
         </section>
