@@ -23,7 +23,7 @@ class Galaxy extends Component {
           <li className="mars">
             <span></span>
           </li>
-          <li className="asteroids">
+          <li className="asteroids_meteoroids">
             <span></span>
           </li>
           <li className="jupiter">
