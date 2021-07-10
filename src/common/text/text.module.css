@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:600,800&display=swap');
+
+.item {
+	font-family: 'EB Garamond', serif;
+}
+
+.heading {
+	--offset: 400px;
+	font-size: 2em;
+	font-weight: 900;
+}
+
+.heading > span {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/spectrum.svg);
+	background-repeat: repeat-x;
+	background-size: 100vw 0.2em;
+	background-position: left bottom 5px;
+	background-position-x: var(--scrollPos);
+}
+
+.heading > span:nth-of-type(2) {
+	background-position-x: calc(var(--offset) + var(--scrollPos));
+}

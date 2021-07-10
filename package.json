@@ -1,36 +1,82 @@
 {
-  "name": "patrickclover.com",
-  "version": "1.0.0",
-  "main": "src/index.js",
-  "repository": "https://github.com/patrickclover/patrickclover.com.git",
-  "author": "patrickclover <patrick@blackbx.io>",
-  "license": "MIT",
-  "scripts": {
-    "dev": "parcel src/index.html",
-    "dev-build": "prebuild parcel dist/index.html",
-    "prebuild": "rm -rf dist",
-    "build": "parcel build src/index.html",
-    "prod": "yarn build yarn prebuild"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "parcel-bundler": "^1.9.7",
-    "sass": "^1.15.1"
-  },
-  "sw-precache": {
-    "maximumFileSizeToCacheInBytes": 10485760
-  },
-  "dependencies": {
-    "components": "^0.1.0",
-    "hamburgers": "^1.1.3",
-    "parcel-plugin-sw-precache": "^1.1.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "velocity": "^0.7.2",
-    "velocity-animate": "^1.5.2",
-    "velocity-react": "^1.4.1"
-  }
+	"name": "patrickclover.com",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"repository": "https://github.com/patrickclover/patrickclover.com.git",
+	"author": "patrickclover <im@patrickclover.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"plugin:react-hooks/recommended",
+			"prettier"
+		],
+		"rules": {
+			"additional-rule": "warn"
+		},
+		"overrides": [
+			{
+				"files": [
+					"**/*.ts?(x)"
+				],
+				"rules": {
+					"additional-typescript-only-rule": "warn"
+				}
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^12.20.16",
+		"@types/react": "^17.0.0",
+		"@types/react-dom": "^17.0.0",
+		"eslint": "^7.30.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-react": "^7.24.0",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"husky": "^7.0.1",
+		"lint-staged": "^11.0.0",
+		"prettier": "^2.3.2",
+		"typescript": "^4.3.5"
+	},
+	"dependencies": {
+		"classnames": "^2.3.1",
+		"prop-types": "^15.7.2",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "4.0.3",
+		"react-text-transition": "^1.3.0",
+		"web-vitals": "^1.0.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

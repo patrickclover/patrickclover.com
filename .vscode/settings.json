@@ -1,21 +1,7 @@
 {
-    "editor.formatOnSave": true,
-    // Disable for Prettier
-    "javascript.format.enable": false,
-    "prettier.disableLanguages": ["handlebars", "hbs", "css", "tsx"],
-    "css.validate": false,
-    "emmet.includeLanguages": {
-      "css": "css",
-      "postcss": "css"
-    },
-    "emmet.syntaxProfiles": {
-      "css": "css",
-      "postcss": "css"
-    },
-    "[handlebars]": { "editor.formatOnSave": false },
-    "[css]": {
-      "editor.formatOnSave": false
-    },
-    "editor.renderWhitespace": "boundary"
-  }
-  
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.organizeImports": true
+	}
+}
