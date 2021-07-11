@@ -1,0 +1,52 @@
+.hamburger {
+	position: fixed;
+	top: 35px;
+	right: 35px;
+	height: 27px;
+	width: 35px;
+	cursor: pointer;
+	z-index: 100;
+	transition: opacity 0.25s ease;
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0;
+}
+
+.hamburger span {
+	background: var(--text-color);
+	border: none;
+	height: 5px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.35s ease;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.hamburger span:nth-of-type(2) {
+	top: 11px;
+}
+
+.hamburger span:nth-of-type(3) {
+	top: 22px;
+}
+
+.hamburger:hover {
+	opacity: 0.7;
+}
+
+.active > span {
+	background: #fff;
+}
+
+.active .top {
+	transform: translateY(11px) translateX(0) rotate(45deg);
+}
+.active .middle {
+	opacity: 0;
+}
+.active .bottom {
+	transform: translateY(-11px) translateX(0) rotate(-45deg);
+}

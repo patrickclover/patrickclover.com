@@ -1,6 +1,8 @@
 import Menu from 'common/menu'
+import { HamburgerProvider } from 'common/menu/context'
 import { useEffect, useState } from 'react'
 import TextTransition, { presets } from 'react-text-transition'
+import styles from './app.module.css'
 
 const texts = [
 	'Same again?',
@@ -17,25 +19,28 @@ const App = () => {
 		return () => clearTimeout(intervalId)
 	}, [])
 	return (
-		<>
+		<HamburgerProvider>
 			<Menu />
-			<h1 className='text' aria-label='Thank you. Have a nice day!'>
-				<span className='heading' aria-hidden='true'>
-					<span>Nice to meet you,</span>
-					<span className='filled'>
-						<TextTransition
-							inline
-							text={texts[index % texts.length]}
-							springConfig={presets.wobbly}
-						/>
+			<div className={styles.app}>
+				<h1 className='text' aria-label='Thank you. Have a nice day!'>
+					<span className='heading' aria-hidden='true'>
+						<span>Nice to meet you,</span>
+						<span className='filled'>
+							<TextTransition
+								direction='down'
+								inline
+								text={texts[index % texts.length]}
+								springConfig={presets.default}
+							/>
+						</span>
+						<span>Thank you.</span>
 					</span>
-					<span>Thank you.</span>
-				</span>
-				<span className='subheading' aria-hidden='true'>
-					Tomorrows hospitality tech today
-				</span>
-			</h1>
-		</>
+					<span className='subheading' aria-hidden='true'>
+						Tomorrows hospitality tech today
+					</span>
+				</h1>
+			</div>
+		</HamburgerProvider>
 	)
 }
 

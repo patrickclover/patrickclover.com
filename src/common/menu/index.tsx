@@ -1,72 +1,25 @@
 import classNames from 'classnames'
-import { useState } from 'react'
+import MenuItem from 'common/menu/item'
+import items from 'store/menu/items.json'
+import Hamburger from './hamburger'
+import useHamburger from './hamburger/useHamburger'
 import style from './menu.module.css'
 
 const Menu = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const { isOpen } = useHamburger()
+
 	return (
 		<>
-			<button
-				type='button'
-				onClick={() => setIsOpen(!isOpen)}
-				className={classNames(style.hamburger, {
-					[style.active]: isOpen,
-				})}
-			>
-				<span className={style.top} />
-				<span className={style.middle} />
-				<span className={style.bottom} />
-			</button>
-
+			<Hamburger />
 			<div className={classNames(style.overlay, { [style.open]: isOpen })}>
-				<nav className='overlay-menu'>
+				<nav>
 					<ul>
-						<li>
-							<a target='_blank' href='https://stampede.ai' rel='noreferrer'>
-								Stampede
-							</a>
-						</li>
-						<li>
-							<a
-								target='_blank'
-								href='https://www.facebook.com/patrickclover'
-								rel='noreferrer'
-							>
-								Facebook
-							</a>
-						</li>
-						<li>
-							<a
-								target='_blank'
-								href='https://twitter.com/patrickclover'
-								rel='noreferrer'
-							>
-								Twitter
-							</a>
-						</li>
-						<li>
-							<a
-								target='_blank'
-								href='https://www.linkedin.com/in/patrickclover/'
-								rel='noreferrer'
-							>
-								LinkedIn
-							</a>
-						</li>
-						<li>
-							<a
-								target='_blank'
-								href='https://github.com/patrickclover'
-								rel='noreferrer'
-							>
-								Github
-							</a>
-						</li>
-						<li>
-							<a target='_blank' href='mailto:im@patrickclover.com' rel='noreferrer'>
-								Contact Me
-							</a>
-						</li>
+						{items.map((item, index) => (
+							<MenuItem key={item.link} href={item.link} index={index}>
+								<span>{item.title}</span>
+								<span className={style.subitem}>{item.type}</span>
+							</MenuItem>
+						))}
 					</ul>
 				</nav>
 			</div>

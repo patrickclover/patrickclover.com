@@ -1,4 +1,38 @@
-.hello {
+.app {
+	height: 100%;
+	border: var(--border-size) solid var(--text-color);
+	display: grid;
+	place-items: center;
+	place-content: center;
+	grid-template-areas: 'body';
+	overflow: hidden;
+	font-family: 'Dela Gothic One', sans-serif;
+	background-color: var(--bg-color);
+	border-radius: 20px;
+}
 
-	background-color: black;
+.app::before {
+	--size: 150vmax;
+	grid-area: body;
+	content: '';
+	inline-size: var(--size);
+	block-size: var(--size);
+	background-image: url('foot-pattern.svg');
+	background-size: var(--bg-size);
+	background-repeat: repeat;
+	transform: rotate(45deg);
+	opacity: 0.25;
+	animation: bg 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.app::before {
+		animation-duration: 0s;
+	}
+}
+
+@keyframes bg {
+	to {
+		background-position: 0 calc(var(--bg-size) * -1);
+	}
 }

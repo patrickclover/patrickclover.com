@@ -5,7 +5,8 @@
 }
 
 html,
-body {
+body,
+#root {
 	height: 100%;
 }
 
@@ -18,41 +19,9 @@ body {
 	--text-color: hsl(0 95% 60%);
 	--bg-color: hsl(0 0% 100%);
 	--bg-size: 200px;
-
-	display: grid;
-	place-items: center;
-	place-content: center;
-	grid-template-areas: 'body';
-	overflow: hidden;
-	font-family: 'Dela Gothic One', sans-serif;
-	background-color: var(--bg-color);
-}
-
-body::before {
-	--size: 150vmax;
-
-	grid-area: body;
-	content: '';
-	inline-size: var(--size);
-	block-size: var(--size);
-	background-image: url('https://assets.codepen.io/225363/foot-pattern.svg');
-	background-size: var(--bg-size);
-	background-repeat: repeat;
-	transform: rotate(45deg);
-	opacity: 0.25;
-	animation: bg 6s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	body::before {
-		animation-duration: 0s;
-	}
-}
-
-@keyframes bg {
-	to {
-		background-position: 0 calc(var(--bg-size) * -1);
-	}
+	--border-size: 10px;
+	margin: 0;
+	background-color: var(--text-color);
 }
 
 .text {

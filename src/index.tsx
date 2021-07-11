@@ -16,5 +16,5 @@ schemaScript.setAttribute('type', 'application/ld+json')
 schemaScript.innerText = JSON.stringify(schema)
 document.body.appendChild(schemaScript)
 
-ReactDOM.render(<App />, document.body)
+ReactDOM.render(<App />, document.getElementById('root'))
 reportWebVitals()

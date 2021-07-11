@@ -1,0 +1,38 @@
+[
+	{
+		"title": "sell more pizza",
+		"content": "Stampede",
+		"link": "https://stampede.ai",
+		"type": "Stampede"
+	},
+	{
+		"title": "eating #pizza",
+		"content": "I'm not a news source, what is this?",
+		"link": "https://twitter.com/patrickclover",
+		"type": "twitter"
+	},
+	{
+		"title": "skills include eating pizza",
+		"content": "Who I know + Who you know",
+		"link": "https://www.linkedin.com/in/patrickclover/",
+		"type": "LinkedIn"
+	},
+	{
+		"title": "base + sauce = pizza",
+		"content": "Some code I wrote",
+		"link": "https://github.com/patrickclover",
+		"type": "GitHub"
+	},
+	{
+		"title": "send me a pizza",
+		"content": "Mail me",
+		"link": "mailto:im@patrickclover.com",
+		"type": "Mail @"
+	},
+	{
+		"title": "i like pizza",
+		"content": "My personal self",
+		"link": "https://www.facebook.com/patrickclover",
+		"type": "facebook"
+	}
+]

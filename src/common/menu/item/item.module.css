@@ -1,0 +1,44 @@
+.item.open {
+	animation: fadeInRight 0.5s ease forwards;
+}
+
+.item {
+	flex: 1;
+	min-height: 50px;
+	position: relative;
+	opacity: 0;
+}
+.item a {
+	display: block;
+	position: relative;
+	color: white;
+	text-decoration: none;
+	overflow: hidden;
+}
+.item a:hover:after,
+.item a:focus:after,
+.item a:active:after {
+	width: 100%;
+}
+.item a:after {
+	content: '';
+	position: absolute;
+	bottom: 65%;
+	left: 50%;
+	width: 0%;
+	transform: translateX(-50%);
+	height: var(--border-size);
+	background: white;
+	transition: 0.35s;
+}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 0;
+		left: 20%;
+	}
+	100% {
+		opacity: 1;
+		left: 0;
+	}
+}
