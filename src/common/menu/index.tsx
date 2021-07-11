@@ -12,6 +12,8 @@ const Menu = () => {
 		<>
 			<Hamburger />
 			<div className={classNames(style.overlay, { [style.open]: isOpen })}>
+				<div className={style.background} />
+
 				<nav>
 					<ul>
 						{items.map((item, index) => (

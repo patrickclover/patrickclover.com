@@ -16,7 +16,7 @@ interface ToggleProps {
 }
 
 const initialState: ToggleProps = {
-	isOpen: false,
+	isOpen: true,
 }
 
 type Action =

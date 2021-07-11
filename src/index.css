@@ -43,7 +43,7 @@ body {
 }
 
 .heading span:not(.filled) {
-	--stroke: min(0.25vmin, 2px) var(--text-color);
+	--stroke: min(0.35vmin, 4px) var(--text-color);
 	color: var(--bg-color);
 	-webkit-text-stroke: var(--stroke);
 	text-stroke: var(--stroke);
