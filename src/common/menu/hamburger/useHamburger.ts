@@ -2,7 +2,7 @@ import { useCallback, useContext } from "react"
 import { DispatchTypes, HamburgerContext } from "../context"
 
 
-const useHamburger = () => {
+const useHamburger = () => { 
 	const { state, dispatch } = useContext(HamburgerContext)
 
 	const onToggle = useCallback(() => {

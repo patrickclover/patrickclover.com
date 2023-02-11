@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import PropType from 'prop-types'
-import { AnchorHTMLAttributes, FunctionComponent, useMemo } from 'react'
+import { AnchorHTMLAttributes, FunctionComponent, PropsWithChildren, useMemo } from 'react'
 import useHamburger from '../hamburger/useHamburger'
 import style from './item.module.css'
 
@@ -8,9 +8,7 @@ interface PassedProps {
 	index: number
 }
 
-type MenuItemType = FunctionComponent<
-	AnchorHTMLAttributes<HTMLAnchorElement> & PassedProps
->
+type MenuItemType = FunctionComponent<PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement> & PassedProps>>
 
 const MenuItem: MenuItemType = props => {
 	const { index, ...rest } = props

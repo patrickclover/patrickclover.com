@@ -29,9 +29,11 @@ const App = () => {
 							<TextTransition
 								direction='down'
 								inline
-								text={texts[index % texts.length]}
+
 								springConfig={presets.default}
-							/>
+							>
+								{texts[index % texts.length]}
+							</TextTransition>
 						</span>
 						<span>Thank you.</span>
 					</span>
@@ -45,3 +47,9 @@ const App = () => {
 }
 
 export default App
+
+/*
+PUBLIC_URL = /proxy/3000 \
+WDS_SOCKET_PATH = $PUBLIC_URL / sockjs - node \
+BROWSER = none yarn start
+*/

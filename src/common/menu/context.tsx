@@ -1,5 +1,5 @@
 import PropType from 'prop-types'
-import { createContext, Dispatch, FunctionComponent, useReducer } from 'react'
+import { createContext, Dispatch, FunctionComponent, PropsWithChildren, useReducer } from 'react'
 
 // eslint-disable-next-line no-shadow
 export enum DispatchTypes {
@@ -16,7 +16,7 @@ interface ToggleProps {
 }
 
 const initialState: ToggleProps = {
-	isOpen: true,
+	isOpen: false,
 }
 
 type Action =
@@ -48,7 +48,7 @@ const HamburgerContext = createContext<{
 	dispatch: Dispatch<MenuActions>
 }>({ state: initialState, dispatch: () => null })
 
-const HamburgerProvider: FunctionComponent = ({ children }) => {
+const HamburgerProvider: FunctionComponent<PropsWithChildren<unknown>> = ({ children }) => {
 	const [state, dispatch] = useReducer(hamburgerReducer, initialState)
 
 	const value = { state, dispatch }

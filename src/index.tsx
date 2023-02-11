@@ -1,6 +1,8 @@
+import { createRoot } from 'react-dom/client'
+
 import App from 'components/app'
+
 import onScroll from 'helpers/scroll'
-import ReactDOM from 'react-dom'
 import schema from 'util/schema.json'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
@@ -16,5 +18,10 @@ schemaScript.setAttribute('type', 'application/ld+json')
 schemaScript.innerText = JSON.stringify(schema)
 document.body.appendChild(schemaScript)
 
-ReactDOM.render(<App />, document.getElementById('root'))
+
+// After
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);
+
 reportWebVitals()
