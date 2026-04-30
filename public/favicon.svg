@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+	<style>
+		.bg { fill: oklch(0.66 0.28 24); }
+		.fg { fill: oklch(0.99 0 0); }
+		@media (prefers-color-scheme: dark) {
+			.bg { fill: oklch(0.76 0.31 22); }
+		}
+		@supports (color: color(display-p3 1 0 0)) {
+			.bg { fill: color(display-p3 0.99 0.32 0.34); }
+			@media (prefers-color-scheme: dark) {
+				.bg { fill: color(display-p3 1 0.46 0.5); }
+			}
+		}
+	</style>
+	<rect class="bg" width="64" height="64" rx="14" />
+	<path
+		class="fg"
+		d="M19 16h13.6c7.4 0 12.6 4.5 12.6 11.5S40 39 32.6 39H27v9h-8V16Zm8 16h5.4c2.8 0 4.5-1.6 4.5-4.5S35.2 23 32.4 23H27v9Z"
+	/>
+</svg>

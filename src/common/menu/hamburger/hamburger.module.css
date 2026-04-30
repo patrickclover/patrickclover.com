@@ -1,52 +1,125 @@
+@property --proximity {
+	syntax: '<number>';
+	initial-value: 0;
+	inherits: false;
+}
+
 .hamburger {
 	position: fixed;
-	top: 35px;
-	right: 35px;
-	height: 27px;
-	width: 35px;
+	top: max(18px, env(safe-area-inset-top, 0px) + 8px);
+	right: max(18px, env(safe-area-inset-right, 0px) + 8px);
+	inline-size: 52px;
+	block-size: 52px;
 	cursor: pointer;
 	z-index: 100;
-	transition: opacity 0.25s ease;
 	-webkit-appearance: none;
 	background: transparent;
 	border: 0;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	color: var(--text-color);
+	transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0);
+	transition:
+		transform 0.45s var(--ease-out-quint),
+		opacity 0.25s var(--ease-out-quint);
 }
 
-.hamburger span {
-	background: var(--text-color);
-	border: none;
-	height: 5px;
-	width: 100%;
+.hamburger:active {
+	transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0) scale(0.93);
+	transition-duration: 0.18s;
+}
+
+.halo {
 	position: absolute;
-	top: 0;
+	inset: -10px;
+	border-radius: 999px;
+	background: radial-gradient(
+		circle,
+		color-mix(in oklab, var(--text-color) 16%, transparent),
+		transparent 70%
+	);
+	opacity: var(--proximity, 0);
+	transform: scale(calc(0.85 + var(--proximity, 0) * 0.2));
+	transition:
+		opacity 0.4s var(--ease-out-quint),
+		transform 0.4s var(--ease-out-quint);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.active .halo {
+	background: radial-gradient(
+		circle,
+		color-mix(in oklab, var(--bg-color) 22%, transparent),
+		transparent 70%
+	);
+	opacity: 0;
+}
+
+.bars {
+	position: relative;
+	display: block;
+	inline-size: 30px;
+	block-size: 24px;
+}
+
+.bars span {
+	position: absolute;
 	left: 0;
-	transition: all 0.35s ease;
-	cursor: pointer;
-	border-radius: 10px;
+	right: 0;
+	height: 4px;
+	background: currentColor;
+	border-radius: 999px;
+	transform-origin: 50% 50%;
+	transition:
+		transform 0.5s var(--ease-tactile),
+		opacity 0.25s var(--ease-out-quint),
+		width 0.4s var(--ease-out-quint);
 }
 
-.hamburger span:nth-of-type(2) {
-	top: 11px;
+.top {
+	top: 0;
+	transition-delay: 80ms;
+}
+.middle {
+	top: 10px;
+	transition-delay: 40ms;
+}
+.bottom {
+	top: 20px;
+	transition-delay: 0ms;
 }
 
-.hamburger span:nth-of-type(3) {
-	top: 22px;
+.hamburger:active {
+	transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0) scale(0.93);
 }
 
-.hamburger:hover {
-	opacity: 0.7;
-}
-
-.active > span {
-	background: #fff;
+.active {
+	color: var(--ink);
 }
 
 .active .top {
-	transform: translateY(11px) translateX(0) rotate(45deg);
+	transform: translateY(10px) rotate(45deg);
+	transition-delay: 0ms;
 }
 .active .middle {
 	opacity: 0;
+	transform: scaleX(0);
+	transition-delay: 40ms;
 }
 .active .bottom {
-	transform: translateY(-11px) translateX(0) rotate(-45deg);
+	transform: translateY(-10px) rotate(-45deg);
+	transition-delay: 80ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hamburger,
+	.halo {
+		transform: none !important;
+		transition: none !important;
+	}
+	.halo {
+		opacity: 0 !important;
+	}
 }

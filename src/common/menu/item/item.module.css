@@ -1,44 +1,120 @@
-.item.open {
-	animation: fadeInRight 0.5s ease forwards;
-}
-
 .item {
-	flex: 1;
-	min-height: 50px;
 	position: relative;
 	opacity: 0;
+	transform: translateX(-28px);
+	will-change: transform, opacity;
 }
+
+.item.open {
+	animation: itemEnter 0.6s var(--ease-out-quint) both;
+}
+
 .item a {
 	display: block;
 	position: relative;
-	color: white;
+	color: inherit;
 	text-decoration: none;
-	overflow: hidden;
-}
-.item a:hover:after,
-.item a:focus:after,
-.item a:active:after {
-	width: 100%;
-}
-.item a:after {
-	content: '';
-	position: absolute;
-	bottom: 65%;
-	left: 50%;
-	width: 0%;
-	transform: translateX(-50%);
-	height: var(--border-size);
-	background: white;
-	transition: 0.35s;
+	line-height: 1.04;
+	padding-block: 0.06em;
 }
 
-@keyframes fadeInRight {
-	0% {
-		opacity: 0;
-		left: 20%;
+.item a::after {
+	content: '';
+	position: absolute;
+	inset-block-end: 62%;
+	inset-inline: 0;
+	height: var(--border-size);
+	background: currentColor;
+	border-radius: 999px;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.5s var(--ease-out-quint);
+	pointer-events: none;
+	will-change: transform;
+}
+
+.title {
+	display: block;
+	line-height: 1.04;
+	text-wrap: balance;
+}
+
+.type {
+	display: block;
+	margin-block-start: 0.4em;
+	height: clamp(14px, 1.7cqi, 16px);
+	overflow: hidden;
+	font-size: clamp(10px, 1.4cqi, 13px);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	color: inherit;
+}
+
+.typeMark {
+	display: inline-block;
+	letter-spacing: 0.08em;
+	transition: letter-spacing 0.55s var(--ease-out-quint);
+}
+
+.typeMark::before,
+.typeMark::after {
+	content: '\00B7';
+	display: inline-block;
+	margin-inline: 0;
+	inline-size: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition:
+		margin-inline 0.55s var(--ease-out-quint),
+		inline-size 0.55s var(--ease-out-quint),
+		opacity 0.45s var(--ease-out-quint);
+}
+
+.item a:focus-visible::after,
+.item a:active::after {
+	transform: scaleX(1);
+}
+
+.item a:focus-visible .typeMark,
+.item a:active .typeMark {
+	letter-spacing: 0.2em;
+}
+
+.item a:focus-visible .typeMark::before,
+.item a:focus-visible .typeMark::after,
+.item a:active .typeMark::before,
+.item a:active .typeMark::after {
+	margin-inline: 0.7em;
+	inline-size: 0.4em;
+	opacity: 1;
+}
+
+@media (hover: hover) {
+	.item a:hover::after {
+		transform: scaleX(1);
 	}
-	100% {
+
+	.item a:hover .typeMark {
+		letter-spacing: 0.2em;
+	}
+
+	.item a:hover .typeMark::before,
+	.item a:hover .typeMark::after {
+		margin-inline: 0.7em;
+		inline-size: 0.4em;
 		opacity: 1;
-		left: 0;
+	}
+}
+
+@keyframes itemEnter {
+	from {
+		opacity: 0;
+		transform: translateX(-28px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
 	}
 }

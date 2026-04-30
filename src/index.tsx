@@ -1,27 +1,33 @@
 import { createRoot } from 'react-dom/client'
-
 import App from 'components/app'
-
-import onScroll from 'helpers/scroll'
 import schema from 'util/schema.json'
 import './index.css'
-import reportWebVitals from './reportWebVitals'
 
-if (window.location.hostname.indexOf('www') === 0) {
-	window.location.href = window.location.href.replace('www.', '')
+if (window.location.hostname.startsWith('www.')) {
+	window.location.replace(
+		window.location.href.replace(/^https?:\/\/www\./, match =>
+			match.replace('www.', ''),
+		),
+	)
 }
 
-window.addEventListener('scroll', onScroll)
-onScroll()
 const schemaScript = document.createElement('script')
 schemaScript.setAttribute('type', 'application/ld+json')
-schemaScript.innerText = JSON.stringify(schema)
-document.body.appendChild(schemaScript)
+schemaScript.textContent = JSON.stringify(schema)
+document.head.appendChild(schemaScript)
 
+const container = document.getElementById('root')
+if (container) {
+	const root = createRoot(container)
+	root.render(<App />)
+}
 
-// After
-const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(<App />);
-
-reportWebVitals()
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker
+			.register('/service-worker.js', { scope: '/' })
+			.catch(() => {
+				/* SW registration is best-effort */
+			})
+	})
+}

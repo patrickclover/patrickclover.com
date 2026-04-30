@@ -1,21 +1,37 @@
-import { useCallback, useContext } from "react"
-import { DispatchTypes, HamburgerContext } from "../context"
+import { useCallback, useContext } from 'react'
+import { flushSync } from 'react-dom'
+import { DispatchTypes, HamburgerContext, MenuActions } from '../context'
 
-
-const useHamburger = () => { 
+const useHamburger = () => {
 	const { state, dispatch } = useContext(HamburgerContext)
 
+	const fire = useCallback(
+		(action: MenuActions) => {
+			const doc = document as Document & {
+				startViewTransition?: (cb: () => void) => unknown
+			}
+			if (typeof doc.startViewTransition === 'function') {
+				doc.startViewTransition(() => {
+					flushSync(() => dispatch(action))
+				})
+			} else {
+				dispatch(action)
+			}
+		},
+		[dispatch],
+	)
+
 	const onToggle = useCallback(() => {
-		dispatch({ type: DispatchTypes.Toggle })
-	}, [dispatch])
+		fire({ type: DispatchTypes.Toggle })
+	}, [fire])
 
 	const onOpen = useCallback(() => {
-		dispatch({ type: DispatchTypes.Open })
-	}, [dispatch])
+		fire({ type: DispatchTypes.Open })
+	}, [fire])
 
 	const onClose = useCallback(() => {
-		dispatch({ type: DispatchTypes.Close })
-	}, [dispatch])
+		fire({ type: DispatchTypes.Close })
+	}, [fire])
 
 	return { isOpen: state.isOpen, onToggle, onOpen, onClose }
 }

@@ -1,5 +1,11 @@
-import PropType from 'prop-types'
-import { createContext, Dispatch, FunctionComponent, PropsWithChildren, useReducer } from 'react'
+import {
+	createContext,
+	Dispatch,
+	FunctionComponent,
+	PropsWithChildren,
+	useMemo,
+	useReducer,
+} from 'react'
 
 // eslint-disable-next-line no-shadow
 export enum DispatchTypes {
@@ -48,20 +54,16 @@ const HamburgerContext = createContext<{
 	dispatch: Dispatch<MenuActions>
 }>({ state: initialState, dispatch: () => null })
 
-const HamburgerProvider: FunctionComponent<PropsWithChildren<unknown>> = ({ children }) => {
+const HamburgerProvider: FunctionComponent<PropsWithChildren<unknown>> = ({
+	children,
+}) => {
 	const [state, dispatch] = useReducer(hamburgerReducer, initialState)
-
-	const value = { state, dispatch }
+	const value = useMemo(() => ({ state, dispatch }), [state])
 	return (
 		<HamburgerContext.Provider value={value}>
 			{children}
 		</HamburgerContext.Provider>
 	)
-}
-
-HamburgerProvider.propTypes = {
-	children: PropType.oneOfType([PropType.arrayOf(PropType.node), PropType.node])
-		.isRequired,
 }
 
 export { HamburgerProvider, HamburgerContext }

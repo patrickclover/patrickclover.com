@@ -1,38 +1,111 @@
+@property --bg-shift {
+	syntax: '<length>';
+	initial-value: 0px;
+	inherits: false;
+}
+
+@property --tilt-x {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@property --tilt-y {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
+
+@property --parallax-x {
+	syntax: '<length>';
+	initial-value: 0px;
+	inherits: false;
+}
+
+@property --parallax-y {
+	syntax: '<length>';
+	initial-value: 0px;
+	inherits: false;
+}
+
 .app {
-	height: 100%;
+	container-type: inline-size;
+	container-name: card;
+	position: relative;
+	block-size: 100%;
 	border: var(--border-size) solid var(--text-color);
+	border-radius: var(--radius);
 	display: grid;
 	place-items: center;
 	place-content: center;
 	grid-template-areas: 'body';
 	overflow: hidden;
-	font-family: 'Dela Gothic One', sans-serif;
+	font-family: 'Dela Gothic One', system-ui, sans-serif;
 	background-color: var(--bg-color);
-	border-radius: 20px;
+	isolation: isolate;
+	transform-style: preserve-3d;
+	transform: perspective(1500px) rotateX(var(--tilt-x, 0deg)) rotateY(
+			var(--tilt-y, 0deg)
+		);
+	transition: transform 0.18s var(--ease-out-quint);
 }
 
+/* Foot-pattern background — full-block coverage across the card interior. */
 .app::before {
-	--size: 150vmax;
+	--size: 200vmax;
 	grid-area: body;
 	content: '';
+	position: absolute;
+	inset: 50% auto auto 50%;
 	inline-size: var(--size);
 	block-size: var(--size);
 	background-image: url('foot-pattern.svg');
 	background-size: var(--bg-size);
 	background-repeat: repeat;
-	transform: rotate(45deg);
-	opacity: 0.25;
-	animation: bg 6s linear infinite;
+	background-position: 0 var(--bg-shift);
+	transform: translate(-50%, -50%) translate3d(
+			var(--parallax-x, 0px),
+			var(--parallax-y, 0px),
+			0
+		)
+		rotate(45deg);
+	transform-origin: center;
+	opacity: 0.3;
+	animation: bg 12s linear infinite;
+	pointer-events: none;
+	z-index: 0;
+	transition: transform 0.4s var(--ease-out-quint);
+	will-change: --bg-shift, transform;
+}
+
+@media (prefers-color-scheme: dark) {
+	.app::before {
+		opacity: 0.22;
+	}
+}
+
+.app > * {
+	position: relative;
+	z-index: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.app {
+		transform: none;
+		transition: none;
+	}
 	.app::before {
-		animation-duration: 0s;
+		animation: none;
+		transform: translate(-50%, -50%) rotate(45deg);
+		transition: none;
 	}
 }
 
 @keyframes bg {
+	from {
+		--bg-shift: 0px;
+	}
 	to {
-		background-position: 0 calc(var(--bg-size) * -1);
+		--bg-shift: calc(var(--bg-size) * -1);
 	}
 }
