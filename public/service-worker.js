@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-const VERSION = 'v4';
+const VERSION = 'v5';
 const PRECACHE = `pc-precache-${VERSION}`;
 const RUNTIME = `pc-runtime-${VERSION}`;
 

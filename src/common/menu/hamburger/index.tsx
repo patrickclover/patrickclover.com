@@ -74,11 +74,26 @@ const Hamburger = () => {
 		}
 	}, [])
 
+	const handleClick = () => {
+		const el = ref.current
+		if (el) {
+			/* Snap the magnetic offset to origin BEFORE the view-transition
+			 * snapshot fires, so the button doesn't visibly drop after the menu
+			 * opens. The CSS transition smooths the retreat in the same frame as
+			 * the menu reveal. */
+			el.style.setProperty('--mag-x', '0px')
+			el.style.setProperty('--mag-y', '0px')
+			el.style.setProperty('--proximity', '0')
+			el.style.setProperty('--velocity', '0')
+		}
+		onToggle()
+	}
+
 	return (
 		<button
 			ref={ref}
 			type='button'
-			onClick={onToggle}
+			onClick={handleClick}
 			aria-label={isOpen ? 'Close menu' : 'Open menu'}
 			aria-expanded={isOpen}
 			aria-controls='primary-menu'
